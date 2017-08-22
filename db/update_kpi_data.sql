@@ -1,0 +1,1 @@
+UPDATE kpi_data SET data = $2 WHERE id = $1;

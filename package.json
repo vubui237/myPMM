@@ -1,0 +1,28 @@
+{
+  "name": "myPMM",
+  "version": "1.0.0",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vubui237/myPMM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vubui237/myPMM/issues"
+  },
+  "homepage": "https://github.com/vubui237/myPMM#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "massive": "^3.2.2"
+  },
+  "devDependencies": {},
+  "description": ""
+}

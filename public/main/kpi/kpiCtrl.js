@@ -1,4 +1,28 @@
-angular.module('myPMM').controller('kpiCtrl', function($scope) {
+angular.module('myPMM').controller('kpiCtrl', function($scope,kpiSrvc) {
+    $scope.addKPIData = (data) => {
+        if(!isNaN(data)) {
+            kpiSrvc.addKPIData(1, new Date(), data).then((response) => {
+                $scope.data[0] = response[2];
+                $scope.labels = response[1];
+                $scope.dataID = response[0];
+            })
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //Items to pull from database upon entering from administration panel   
     $scope.kpiTitle = "Kitkats";
     $scope.kpiLowerLimit = 20;
@@ -9,18 +33,23 @@ angular.module('myPMM').controller('kpiCtrl', function($scope) {
     $scope.yDate = new Date();
     $scope.changeDataPoint = (newDataPoint) => {
         $scope.data[0][$scope.dataPointIndex] = newDataPoint;
+        $scope.dataPointID = $scope.dataID[$scope.dataPointIndex];
+        console.log($scope.dataPointID);
+        kpiSrvc.updateKPIData($scope.dataPointID, newDataPoint);
     }
-    $scope.noob = (nums) => {
-        $scope.data[0].push(nums);
-        $scope.data[1].push($scope.kpiLowerLimit);
-        $scope.data[2].push($scope.kpiUpperLimit);
-        $scope.labels.push($scope.yDate);
-    } 
+    // $scope.noob = (nums) => {
+    //     $scope.data[0].push(nums);
+    //     $scope.data[1].push($scope.kpiLowerLimit);
+    //     $scope.data[2].push($scope.kpiUpperLimit);
+    //     $scope.labels.push(new Date());
+    // } 
     $scope.editLastDataPoint = lastNewDataPoint => {
         $scope.data[0][$scope.data[0].length-1] = lastNewDataPoint;
         }
-    
-    $scope.correctiveAction = [];
+    $scope.addCorrectiveAction = (correctiveAction) => {
+        $scope.correctiveActions.push(correctiveAction);
+    }
+    $scope.correctiveActions = [];
     //Labels = X axis;
     $scope.labels = [];
     //Legend series names
@@ -50,20 +79,23 @@ angular.module('myPMM').controller('kpiCtrl', function($scope) {
   $scope.onClick = function (points, evt) {
     //This gets the index of the value on the line graph, clicked.
     $scope.dataPointIndex = points[0]._index;
+    console.log($scope.dataPointIndex);
+    //gets the date
+    //console.log(points[0]._chart.config.data.labels[points[0]._index])
   };
   $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
   $scope.options = {
     scales: {
-      yAxes: [
+        yAxes: [
         {
-        id: 'y-axis-1',
-        type: 'linear',
-        display: true,
-        position: 'left',
-        ticks: { 
+            id: 'y-axis-1',
+            type: 'linear',
+            display: true,
+            position: 'left',
+            ticks: { 
               min: $scope.chartLowerLimit, 
               max: $scope.chartUpperLimit , 
-        } 
+            } 
         }
       ]
     },
