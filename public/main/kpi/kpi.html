@@ -1,10 +1,10 @@
 <div>  
     <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-colors="colors" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
     </canvas>
-    <input type="text" placeholder="Enter Data" ng-model="nums"><button ng-click="addKPIData(nums)">Submit</button>
+    <input type="text" placeholder="Enter Data" ng-model="nums"><input type="text" placeholder="Corrective Action" ng-model="correctiveAction"><button ng-click="addKPIData(nums, correctiveAction)">Submit</button>
     <input type="text" placeholder="Click point to modify" ng-model="newDataPoint"><button ng-click="changeDataPoint(newDataPoint)">Edit</button>
     <input type="text" placeholder="Modify previous point" ng-model="lastNewDataPoint"><button ng-click="editLastDataPoint(lastNewDataPoint)">Edit</button>
-    <input type="text" placeholder="Corrective Action" ng-model="correctiveAction"><button ng-click="addCorrectiveAction(correctiveAction)">Add</button>
+    <button ng-click="deleteDataPoint()">Delete - Click a point</button>
 
 </div>
 

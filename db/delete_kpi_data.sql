@@ -1,0 +1,1 @@
+DELETE FROM kpi_data WHERE id = $1;

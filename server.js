@@ -19,6 +19,7 @@ massive(config.connectionString).then(db => {
 app.get('/kpidata/:id', kpiCtrl.get);
 app.post('/kpidata', kpiCtrl.add);
 app.put('/kpidata/:id', kpiCtrl.update);
+app.delete('/kpidata/:id', kpiCtrl.delete);
 
 
 

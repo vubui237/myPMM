@@ -1,25 +1,13 @@
 angular.module('myPMM').controller('kpiCtrl', function($scope,kpiSrvc) {
-    $scope.addKPIData = (data) => {
+    $scope.addKPIData = (data, correctiveAction) => {
         if(!isNaN(data)) {
-            kpiSrvc.addKPIData(1, new Date(), data).then((response) => {
+            kpiSrvc.addKPIData(1, new Date(), data, correctiveAction).then((response) => {
                 $scope.data[0] = response[2];
                 $scope.labels = response[1];
                 $scope.dataID = response[0];
             })
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -31,24 +19,25 @@ angular.module('myPMM').controller('kpiCtrl', function($scope,kpiSrvc) {
     $scope.chartUpperLimit = 100;
     //Push new Date(); into the database and reformat after the data has been pulled so you can keep track.
     $scope.yDate = new Date();
+
     $scope.changeDataPoint = (newDataPoint) => {
         $scope.data[0][$scope.dataPointIndex] = newDataPoint;
         $scope.dataPointID = $scope.dataID[$scope.dataPointIndex];
-        console.log($scope.dataPointID);
+        //console.log($scope.dataPointID);
         kpiSrvc.updateKPIData($scope.dataPointID, newDataPoint);
     }
-    // $scope.noob = (nums) => {
-    //     $scope.data[0].push(nums);
-    //     $scope.data[1].push($scope.kpiLowerLimit);
-    //     $scope.data[2].push($scope.kpiUpperLimit);
-    //     $scope.labels.push(new Date());
-    // } 
+    $scope.deleteDataPoint = (dataPoint) => {
+        $scope.data[0].splice([$scope.dataPointIndex],1)
+        $scope.dataPointID = $scope.dataID[$scope.dataPointIndex];
+        //After splicing it messes up if you delete between two points.
+        //Use a get command in place after delete and remove splice to fix.
+        kpiSrvc.deleteKPIData($scope.dataPointID)
+    }
+
     $scope.editLastDataPoint = lastNewDataPoint => {
         $scope.data[0][$scope.data[0].length-1] = lastNewDataPoint;
+        kpiSrvc.updateKPIData($scope.dataID[$scope.data[0].length-1], lastNewDataPoint);
         }
-    $scope.addCorrectiveAction = (correctiveAction) => {
-        $scope.correctiveActions.push(correctiveAction);
-    }
     $scope.correctiveActions = [];
     //Labels = X axis;
     $scope.labels = [];
@@ -79,7 +68,7 @@ angular.module('myPMM').controller('kpiCtrl', function($scope,kpiSrvc) {
   $scope.onClick = function (points, evt) {
     //This gets the index of the value on the line graph, clicked.
     $scope.dataPointIndex = points[0]._index;
-    console.log($scope.dataPointIndex);
+    //console.log($scope.dataPointIndex);
     //gets the date
     //console.log(points[0]._chart.config.data.labels[points[0]._index])
   };
