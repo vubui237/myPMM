@@ -9,6 +9,19 @@
 <body>
     This is index.html
     <ui-view></ui-view>
+      <button
+        class="btn btn-primary btn-margin"
+        ng-if="!vm.auth.isAuthenticated()"
+        ng-click="vm.auth.login()">
+          Log In
+      </button>
+
+      <button
+        class="btn btn-primary btn-margin"
+        ng-if="vm.auth.isAuthenticated()"
+        ng-click="vm.auth.logout()">
+          Log Out
+      </button>
     
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
