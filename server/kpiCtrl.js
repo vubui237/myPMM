@@ -9,6 +9,12 @@ module.exports = {
         const{id} = req.params;
         db.get_kpi_data([id]).then(data=>res.status('200').send(data)).catch(()=> res.status('500').send());
     },
+    getinfo: (req,res,next) => {
+        console.log("hi")
+        const db = req.app.get('db');
+        const{id} = req.params;
+        db.get_kpi_info([id]).then(data=>res.status('200').send(data)).catch(()=> res.status('500').send());
+    },
     update: (req,res,next) => {
         const db = req.app.get('db');
         const{id} = req.params;

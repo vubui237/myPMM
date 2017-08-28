@@ -23,6 +23,7 @@ app.use(express.static('./public'));
 massive(config.connectionString).then(db => { app.set('db', db) })
 
 app.get('/kpidata/:id', kpiCtrl.get);
+app.get('/kpiinfo/:id', kpiCtrl.getinfo);
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {successRedirect: '/'}), loginCtrl.auth0CallBack)
 app.get('/auth/me', loginCtrl.displayProfile);

@@ -1,5 +1,5 @@
 angular.module('myPMM').controller('kpiCtrl', function($scope,kpiSrvc) {
-    $scope.datas = [1,2,3,4];
+    $scope.datas = [1,2];
 //     $scope.addKPIData = (data, correctiveAction) => {
 //         if(!isNaN(data)) {
 //             kpiSrvc.addKPIData(1, new Date(), data, correctiveAction).then((response) => {
