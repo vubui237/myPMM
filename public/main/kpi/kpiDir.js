@@ -113,6 +113,7 @@ angular.module('myPMM').directive('test', function () {
                 scope.data[0].splice([scope.dataPointIndex],1)
                 scope.data[1].splice([scope.dataPointIndex],1)
                 scope.data[2].splice([scope.dataPointIndex],1)
+                scope.labels.splice([scope.dataPointIndex],1)
                 scope.dataPointID = scope.dataID[scope.dataPointIndex];
                 //After splicing it messes up if you delete between two points.
                 //Use a get command in place after delete and remove splice to fix.

@@ -1,5 +1,8 @@
-angular.module('myPMM').controller('kpiCtrl', function($scope,kpiSrvc) {
-    $scope.datas = [1,2];
+angular.module('myPMM').controller('kpiCtrl', function($scope,homeSrvc) {
+    $scope.user_infos = homeSrvc.getUser().then((response) => {
+        let parseArray = response[0].assigned_kpis.split(" ").map((x) => {return parseInt(x)})
+        $scope.user_info = parseArray;
+    })
 //     $scope.addKPIData = (data, correctiveAction) => {
 //         if(!isNaN(data)) {
 //             kpiSrvc.addKPIData(1, new Date(), data, correctiveAction).then((response) => {
