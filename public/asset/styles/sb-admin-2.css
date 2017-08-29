@@ -167,7 +167,7 @@ body {
   overflow-y: scroll;
 }
 .panel-body {
-  height: 450px;
+  max-height: 650px;
   overflow-y: scroll;
 }
 .login-panel {
@@ -175,7 +175,7 @@ body {
 }
 .flot-chart {
   display: block;
-  height: 400px;
+  height: 100%;
 }
 .flot-chart-content {
   width: 100%;

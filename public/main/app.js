@@ -10,10 +10,35 @@ angular.module('myPMM',['ui.router', 'chart.js']).config(function ($stateProvide
             templateUrl: './main/kpi/kpi.html',
             controller: 'kpiCtrl'
         })
-        .state('admin', {
-            url: '/admin',
-            templateUrl: './main/dashboard/dashboard.html',
-            controller: 'dbCtrl'
+        .state('kpiAdd', {
+            url: '/kpiAdd',
+            templateUrl: './main/kpi/kpi_add/kpi_add.html',
+            controller: 'kpiAddCtrl'
+        })
+        .state('kpiDelete', {
+            url: '/kpidelete',
+            templateUrl: './main/kpi/kpi_delete/kpi_delete.html',
+            controller: 'kpiDeleteCtrl'
+        })
+        .state('kpiHistory', {
+            url: '/kpihistory',
+            templateUrl: './main/kpi/kpi_history/kpi_history.html',
+            controller: 'kpiHistoryCtrl'
+        })
+        .state('kpiUpdate', {
+            url: '/kpiupdate',
+            templateUrl: './main/kpi/kpi_update/kpi_update.html',
+            controller: 'kpiUpdateCtrl'
+        })
+        .state('userDelete', {
+            url: '/userdelete',
+            templateUrl: './main/user/user_delete/user_delete.html',
+            controller: 'userDeleteCtrl'
+        })
+        .state('userUpdate', {
+            url: '/userupdate',
+            templateUrl: './main/user/user_update/user_update.html',
+            controller: 'userUpdateCtrl'
         })
     $urlRouterProvider
         .otherwise('/')

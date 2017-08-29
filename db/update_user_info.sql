@@ -1,0 +1,1 @@
+UPDATE users SET avatar = $2, level = $3, assigned_kpis = $4 WHERE authid = $1;

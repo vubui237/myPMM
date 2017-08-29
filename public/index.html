@@ -172,29 +172,26 @@
                                             <a href="#">Process Control<span class="fa arrow"></span></a>
                                             <ul class="nav nav-third-level">
                                                 <li>
-                                                    <a href="#">KPI History</a>
+                                                    <a ui-sref="kpiHistory">KPI History</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">New KPI</a>
+                                                    <a ui-sref="kpiAdd">New KPI</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Update KPI</a>
+                                                    <a ui-sref="kpiUpdate">Update KPI</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Delete KPI</a>
+                                                    <a ui-sref="kpiDelete">Delete KPI</a>
                                                 </li>
                                             </ul>
                                     <li>
                                             <a href="#">Accounts<span class="fa arrow"></span></a>
                                             <ul class="nav nav-third-level">
                                                 <li>
-                                                    <a href="#">New User</a>
+                                                    <a ui-sref="userUpdate">Activate/Update User</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Update User</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Delete User</a>
+                                                    <a ui-sref="userDelete">Delete User</a>
                                                 </li>
                                             </ul>
                                 </ul>
@@ -250,17 +247,28 @@
 <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
 <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.js"></script>
+<script src="./asset/js/jquery.min.js"></script>
+<script src="./asset/js/bootstrap.min.js"></script>
+<script src="./asset/js/metisMenu.min.js"></script>
+<script src="./asset/js/sb-admin-2.min.js"></script>
 <script src="./main/app.js"></script>
 <script src="./main/home/homeCtrl.js"></script>
 <script src="./main/home/homeSrvc.js"></script>
 <script src="./main/kpi/kpiCtrl.js"></script>
 <script src="./main/kpi/kpiSrvc.js"></script>
 <script src="./main/kpi/kpiDir.js"></script>
-<script src="./main/dashboard/dbCtrl.js"></script>
-<script src="./main/dashboard/dbService.js"></script>
+<script src="./main/user/user_delete/user_deleteCtrl.js"></script>
+<script src="./main/user/user_delete/user_deleteSrvc.js"></script>
+<script src="./main/user/user_update/user_updateCtrl.js"></script>
+<script src="./main/user/user_update/user_updateSrvc.js"></script>
+<script src="./main/kpi/kpi_add/kpi_addSrvc.js"></script>
+<script src="./main/kpi/kpi_add/kpi_addCtrl.js"></script>
+<script src="./main/kpi/kpi_delete/kpi_deleteCtrl.js"></script>
+<script src="./main/kpi/kpi_delete/kpi_deleteSrvc.js"></script>
+<script src="./main/kpi/kpi_history/kpi_historyCtrl.js"></script>
+<script src="./main/kpi/kpi_history/kpi_historySrvc.js"></script>
+<script src="./main/kpi/kpi_update/kpi_updateCtrl.js"></script>
+<script src="./main/kpi/kpi_update/kpi_updateSrvc.js"></script>
 
-<script src="./asset/js/jquery.min.js"></script>
-<script src="./asset/js/bootstrap.min.js"></script>
-<script src="./asset/js/metisMenu.min.js"></script>
-<script src="./asset/js/sb-admin-2.min.js"></script>
+
 </html>

@@ -1,0 +1,11 @@
+<div ng-repeat="userInfo in userInfos">
+UserID: {{userInfo.authid}}<br>
+Username: {{userInfo.username}}<br>
+Avatar: <input ng-model="userInfo.avatar"><br>
+User Level: <input ng-model="userInfo.level"><br>
+Assigned KPIs: <input ng-model="userInfo.assigned_kpis"><br>
+<button ng-click="updateDetails(userInfo.authid, userInfo.avatar, userInfo.level, userInfo.assigned_kpis)">Update</button>
+</div>
+
+
+
