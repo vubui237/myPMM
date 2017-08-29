@@ -48,13 +48,13 @@ angular.module('myPMM').directive('test', function () {
                             position: 'left',
                             ticks: { 
                             min: scope.chartLowerLimit, 
-                            max: scope.chartUpperLimit , 
+                            max: scope.chartUpperLimit, 
                             } 
                         }
                     ]
                 },
                 title: {
-                        display: true,
+                        display: false,
                         text: scope.kpiTitle
                 },
                 elements: {
@@ -147,7 +147,10 @@ angular.module('myPMM').directive('test', function () {
                 //console.log(points[0]._chart.config.data.labels[points[0]._index])
             };
             scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
- 
+            scope.chartOnOff = false;
+            scope.showHide = () => {
+                scope.chartOnOff = !scope.chartOnOff
+            }
         }
     };
 });

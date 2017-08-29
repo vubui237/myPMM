@@ -10,6 +10,11 @@ angular.module('myPMM',['ui.router', 'chart.js']).config(function ($stateProvide
             templateUrl: './main/kpi/kpi.html',
             controller: 'kpiCtrl'
         })
+        .state('admin', {
+            url: '/admin',
+            templateUrl: './main/dashboard/dashboard.html',
+            controller: 'dbCtrl'
+        })
     $urlRouterProvider
         .otherwise('/')
 })
