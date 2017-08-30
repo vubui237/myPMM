@@ -7,8 +7,9 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
             $scope.level = true;
             $scope.levelActivation = false;
         }
-        if($scope.test2[0].level == 0) {
-            console.log("hiya")
+        if($scope.test2[0].level === 0) {
+            console.log("yo level too low noob")
+            console.log($scope.test2)
             $scope.level = false;
             $scope.levelActivation = true;
         }
