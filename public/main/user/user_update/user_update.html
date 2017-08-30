@@ -1,11 +1,23 @@
-<div ng-repeat="userInfo in userInfos">
-UserID: {{userInfo.authid}}<br>
-Username: {{userInfo.username}}<br>
-Avatar: <input ng-model="userInfo.avatar"><br>
-User Level: <input ng-model="userInfo.level"><br>
-Assigned KPIs: <input ng-model="userInfo.assigned_kpis"><br>
-<button ng-click="updateDetails(userInfo.authid, userInfo.avatar, userInfo.level, userInfo.assigned_kpis)">Update</button>
+
+        <select name="selectUser" ng-model="selectedUser">
+                <option value="" selected hidden />Select User
+          <option ng-repeat="userInfo in userInfos" value="{{userInfo.authid}}+{{userInfo.username}}+{{userInfo.avatar}}+{{userInfo.level}}+{{userInfo.assigned_kpis}}">{{userInfo.username}}</option>
+        </select>
+
+
+<button ng-click="submitUpdate(selectedUser)">Display Info</button>
+
+<!-- This NG repeat is if you want all users to be displayed instead of selected. -->
+<!-- <div ng-repeat="userInfo in userInfos"> -->
+<div ng-if="selectedUsers">
+UserID: {{selectedUsers[0]}}<br>
+Username: {{selectedUsers[1]}}<br>
+Avatar: <input ng-model="selectedUsers[2]"><br>
+User Level: <input ng-model="selectedUsers[3]">0 = Inactive, 1 = Supervisor, 2 = Manager<br>
+Assigned KPIs: <input ng-model="selectedUsers[4]"><br>
+<button ng-click="updateDetails(selectedUsers[0], selectedUsers[1], selectedUsers[2], selectedUsers[3])">Update</button>
 </div>
+<!-- </div>  -->
 
 
 
