@@ -1,0 +1,1 @@
+SELECT * FROM kpi_data WHERE kpi_id = $1;

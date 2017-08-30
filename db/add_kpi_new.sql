@@ -1,0 +1,1 @@
+INSERT INTO kpi_list(title, kpi_lower_limit, kpi_upper_limit, chart_lower_limit, chart_upper_limit) VALUES ($1,$2,$3,$4,$5)

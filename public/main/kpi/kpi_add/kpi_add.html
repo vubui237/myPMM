@@ -1,1 +1,8 @@
-kpi add
+KPI Title: <input ng-model="kTitle" placeholder="Paracetic Acid"><br>
+KPI Lower Limit: <input ng-model="kpiLL" placeholder="200"><br>
+KPI Upper Limit: <input ng-model="kpiUL" placeholder="800"><br>
+Chart Lower Limit: <input ng-model="cLL" placeholder="0"><br>
+Chart Upper Limit: <input ng-model="cUL" placeholder="1000"><br>
+<button ng-click="addNewKPI(kTitle, kpiLL, kpiUL, cLL, cUL)">Add</button>
+
+ADD a scope to remove the ng-model's after clicking add

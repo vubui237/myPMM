@@ -1,1 +1,14 @@
-kpi history
+<div>
+    <label for="selectKPI"> KPIs: </label>
+    <select name="selectKPI" ng-model="selectedKPI">
+    <option value="" selected hidden />Select KPI
+    <!-- <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}+{{kpis.title}}+{{kpis.kpi_lower_limit}}+{{kpis.kpi_upper_limit}}+{{kpis.chart_lower_limit}}+{{kpis.chart_upper_limit}}">{{kpis.title}}</option> -->
+    <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}">{{kpis.title}}</option>
+    </select>
+    <button ng-click="displayKPI(selectedKPI)">Display KPI</button>
+
+
+    
+</div>
+
+Filter out days in which the process was out of control!!! wohoo

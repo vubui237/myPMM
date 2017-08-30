@@ -10,6 +10,7 @@ const config = require('./config.js');
 const kpiCtrl = require('./server/kpiCtrl.js');
 const loginCtrl = require('./server/loginCtrl.js');
 const userCtrl = require('./server/userCtrl.js');
+const kpiAdminCtrl = require('./server/kpiAdminCtrl.js')
 const port = 3000;
 
 const app = express();
@@ -30,8 +31,11 @@ app.get('/auth/callback', passport.authenticate('auth0', {successRedirect: '/'})
 app.get('/auth/me', loginCtrl.displayProfile);
 app.get('/auth/logout', loginCtrl.logout);
 app.get('/getusers', userCtrl.getusers);
+app.get('/kpihistory', kpiAdminCtrl.getHistory);
+app.get('/kpihistory/:id', kpiAdminCtrl.getKPIHistoryByID);
 
 app.post('/kpidata', kpiCtrl.add);
+app.post('/addNewKPI', kpiAdminCtrl.add)
 
 app.put('/kpidata/:id', kpiCtrl.update);
 app.put('/userupdate', userCtrl.userupdate);
