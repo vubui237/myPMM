@@ -3,12 +3,41 @@
     <select name="selectKPI" ng-model="selectedKPI">
     <option value="" selected hidden />Select KPI
     <!-- <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}+{{kpis.title}}+{{kpis.kpi_lower_limit}}+{{kpis.kpi_upper_limit}}+{{kpis.chart_lower_limit}}+{{kpis.chart_upper_limit}}">{{kpis.title}}</option> -->
-    <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}">{{kpis.title}}</option>
+    <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}+{{kpis.title}}+{{kpis.kpi_lower_limit}}+{{kpis.kpi_upper_limit}}+{{kpis.chart_lower_limit}}+{{kpis.chart_upper_limit}}">{{kpis.title}}</option>
     </select>
-    <button ng-click="displayKPI(selectedKPI)">Display KPI</button>
+    <button ng-click="displayKPI(selectedKPI)">All</button>  <button ng-click="displayExceededKPI(selectedKPI)"> > Limits</button>
 
 
     
 </div>
 
 Filter out days in which the process was out of control!!! wohoo
+
+<div class="row" ng-if="infoKPI">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <b>{{selectedKPIs[1]}} - Trends</b>
+                </div>
+                <div class="panel-body2">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Data</th>
+                                    <th>Corrective Action</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="items_kpi in infoKPI">
+                                <tr>
+                                    <td>{{items_kpi.date1}}</td>
+                                    <td>{{items_kpi.data}}</td>
+                                    <td>{{items_kpi.corrective_action}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
