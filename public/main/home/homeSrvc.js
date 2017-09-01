@@ -15,11 +15,11 @@ angular.module('myPMM').service('homeSrvc', function($http) {
             return response.data;
         })
     }
-    this.postChat = (user_chat_id, user_message, time_ago) => {
+    this.postChat = (user_chat_id, user_message, time_ago, img) => {
         return $http({
             method: "POST",
             url: "/chat",
-            data: {"message" : user_message , "timeago" : time_ago , "id" : user_chat_id}
+            data: {"message" : user_message , "timeago" : time_ago , "id" : user_chat_id, "img" : img}
         }).then((response)=> {
             return response.data;
         })

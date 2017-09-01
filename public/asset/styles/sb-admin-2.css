@@ -454,3 +454,7 @@ table.dataTable thead .sorting:after {
   height: 50px;
   width: 50px;
 }
+#chatBoxMessageImg {
+  max-height: 200px;
+  max-width: 350px;
+}

@@ -1,6 +1,6 @@
 <div class="row"  ng-if="level">
         <div class="col-lg-12">
-            <h1 class="page-header">Welcome, {{test2[0].username}}</h1> Prove a point list: training videos, shopping cart
+            <h1 class="page-header">Welcome, {{test2[0].username}}</h1> Prove a point list: training videos, shopping cart, add nicknames, usercp, "show more messages", "hover oveer name for more user info"
             <div class="chat-panel panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-comments fa-fw"></i> Team Discussion
@@ -25,11 +25,13 @@
                                     <div class="header">
                                         <strong class="primary-font">{{msgs.username}}</strong>
                                         <small class="pull-right text-muted">
-                                            <i class="fa fa-clock-o fa-fw"></i> {{msgs.timeago}}
+                                            <i class="fa fa-clock-o fa-fw"></i>{{msgs.timeago}}
                                         </small>
                                     </div>
                                     <p>
                                         {{msgs.message}}
+                                        <a href="{{msgs.img}}" target="_blank"><img id="chatBoxMessageImg" ng-src="{{msgs.img}}"></a>
+                               
                                     </p>
                                 </div>
                             </li>

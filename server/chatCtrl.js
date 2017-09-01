@@ -5,7 +5,7 @@ module.exports = {
     },
     postChat: (req,res,next) => {
         const db = req.app.get('db');
-        const {message, timeago, id} = req.body;
-        db.create_chat_message([message, timeago, id]).then((data)=>res.status('200').send(data)).catch(()=>res.status('404').send());
+        const {message, timeago, id, img} = req.body;
+        db.create_chat_message([message, timeago, id, img]).then((data)=>res.status('200').send(data)).catch(()=>res.status('404').send());
     }
 }

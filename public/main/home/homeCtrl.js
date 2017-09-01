@@ -1,5 +1,5 @@
 angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
-
+    //Was originally testing with ng-click instead of refreshes, turn this back into = instead of function later.
     $scope.test = () => {
         homeSrvc.getUser().then((response) => {
         $scope.test2 = response;
@@ -21,6 +21,7 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
         })
     }
     $scope.test();
+    //Was originally testing with ng-click instead of refreshes, turn this back into = instead of function later.
     $scope.activateChat = () => {
         homeSrvc.getChat().then((messages)=> {
             $scope.chatData = messages;
@@ -31,10 +32,46 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
     $scope.activateChat();
 
     $scope.sendChat = (msg) => {
-        if(msg) {
-            let timeago = new Date();
-            // console.log(msg);
-            homeSrvc.postChat($scope.userID, msg, timeago).then((messages)=> {
+        let timeago = new Date();
+        let imgTag = msg.split("").splice(0,5).join("")+msg.split("").splice(msg.length-6, 6).join("");
+        let img = null;
+        //Adding image BBCodes like forums.
+        if(imgTag === '[img][/img]') {
+            img = msg.slice(5,msg.length-6);
+            msg = null;
+        }
+        //IMPLEMENTING EMOJIS ZOMGZ
+        //convert to switch statement later.
+        if(msg === ":cool:") {
+            img = './asset/img/emojis/cool.png'
+            msg = null;
+        }
+        if(msg === ":lol:") {
+            img = './asset/img/emojis/lol.png'
+            msg = null;
+        }
+        if(msg === ":angry:") {
+            img = './asset/img/emojis/angry.png'
+            msg = null;
+        }
+        if(msg === ":crying:") {
+            img = './asset/img/emojis/crying.png'
+            msg = null;
+        }
+        if(msg === ":devmtn:") {
+            img = './asset/img/emojis/devmtn.png'
+            msg = null;
+        }
+        if(msg === ":love:") {
+            img = './asset/img/emojis/love.png'
+            msg = null;
+        }
+        if(msg === ":omg:") {
+            img = './asset/img/emojis/omg.png'
+            msg = null;
+        }
+        if(msg!== "") {
+            homeSrvc.postChat($scope.userID, msg, timeago, img).then((messages)=> {
                 $scope.chatData = messages;
                 console.log($scope.chatData);
                 sortChats();
