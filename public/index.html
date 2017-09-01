@@ -145,7 +145,7 @@
                     <li><a href="/auth" ng-if="!test2"><i class="fa fa-sign-out fa-fw"></i>Login</a>                     
                     </li>
                 </ul>
-                <div class="navbar-default sidebar" role="navigation">
+                <div class="navbar-default sidebar" role="navigation" ng-if="!levelActivation">
                     <div class="sidebar-nav navbar-collapse" ng-if="test2">
                         <ul class="nav" id="side-menu">
                            
@@ -163,10 +163,10 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                                <a href="tables.html"><i class="fa fa-usd fa-fw"></i> Bonus</a>
                             </li>
-                            <li>
-                                <a href="#"><i class="fa fa-wrench fa-fw"></i>Admin<span class="fa arrow"></span></a>
+                            <li ng-if="admin">
+                                <a href="#"><i class="fa fa-cog fa-fw"></i> Admin<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                             <a href="#">Process Control<span class="fa arrow"></span></a>
@@ -239,6 +239,7 @@
 <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
 <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.js"></script>
+<script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
 <script src="./asset/js/jquery.min.js"></script>
 <script src="./asset/js/bootstrap.min.js"></script>
 <script src="./asset/js/metisMenu.min.js"></script>

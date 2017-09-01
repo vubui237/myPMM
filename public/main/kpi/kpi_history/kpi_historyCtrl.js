@@ -20,7 +20,11 @@ angular.module('myPMM').controller('kpiHistoryCtrl', function($scope,kpiHistoryS
             // console.log($scope.infoKPI);
             $scope.infoKPI = ($scope.infoKPI2)
         })
-        
-
     }
+    $scope.exportData = function () {
+        var blob = new Blob([document.getElementById('excelExport').innerHTML], {
+            type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
+        });
+        saveAs(blob, "Report.xls");
+    };
 })

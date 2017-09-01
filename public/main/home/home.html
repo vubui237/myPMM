@@ -1,33 +1,35 @@
 <div class="row"  ng-if="level">
         <div class="col-lg-12">
-            <h1 class="page-header">{{test2[0].username}}'s Dashboard</h1>
+            <h1 class="page-header">Welcome, {{test2[0].username}}</h1> Prove a point list: training videos, shopping cart
             <div class="chat-panel panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-comments fa-fw"></i> Team Discussion
                         <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                            <form ng-submit="sendChat(msg);msg=''">
+                                <input id="btn-input" type="text" ng-model="msg" class="form-control input-sm" placeholder="Write your message" />
+                            </form>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                                    <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="sendChat(msg);msg=''">
                                         Send
                                     </button>
                                 </span>
                             </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body-chatty" ng-repeat="msgs in chatData">
                         <ul class="chat">
-                            <li class="left clearfix">
+                            <li class="left clearfix centerChat">
                                 <span class="chat-img pull-left">
-                                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    <img ng-src="{{msgs.avatar}}" alt="{{msgs.username}}'s Avatar'" class="img-circle avatar" />
                                 </span>
                                 <div class="chat-body clearfix">
                                     <div class="header">
-                                        <strong class="primary-font">Andre Nogueira</strong>
+                                        <strong class="primary-font">{{msgs.username}}</strong>
                                         <small class="pull-right text-muted">
-                                            <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                            <i class="fa fa-clock-o fa-fw"></i> {{msgs.timeago}}
                                         </small>
                                     </div>
                                     <p>
-                                        Hello, welcome to your dashboard {{test2[0].username}}.
+                                        {{msgs.message}}
                                     </p>
                                 </div>
                             </li>

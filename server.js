@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const {json} = require('body-parser');
 const cors = require('cors');
@@ -11,7 +13,7 @@ const kpiCtrl = require('./server/kpiCtrl.js');
 const loginCtrl = require('./server/loginCtrl.js');
 const userCtrl = require('./server/userCtrl.js');
 const kpiAdminCtrl = require('./server/kpiAdminCtrl.js')
-const port = 3000;
+const chatCtrl = require('./server/chatCtrl.js')
 
 const app = express();
 
@@ -33,9 +35,11 @@ app.get('/auth/logout', loginCtrl.logout);
 app.get('/getusers', userCtrl.getusers);
 app.get('/kpihistory', kpiAdminCtrl.getHistory);
 app.get('/kpihistory/:id', kpiAdminCtrl.getKPIHistoryByID);
+app.get('/chat', chatCtrl.getChat);
 
 app.post('/kpidata', kpiCtrl.add);
 app.post('/addNewKPI', kpiAdminCtrl.add)
+app.post('/chat', chatCtrl.postChat);
 
 app.put('/kpidata/:id', kpiCtrl.update);
 app.put('/userupdate', userCtrl.userupdate);
@@ -65,4 +69,4 @@ passport.serializeUser(loginCtrl.serialize);
 
 passport.deserializeUser(loginCtrl.deserialize);
 
-app.listen(port, () => { console.log(`Listening on port: ${port}`)});
+app.listen(process.env.PORT, () => { console.log(`Listening on port: ${process.env.PORT}`)});

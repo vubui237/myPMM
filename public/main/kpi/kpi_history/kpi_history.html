@@ -11,15 +11,14 @@
     
 </div>
 
-Filter out days in which the process was out of control!!! wohoo
 
 <div class="row" ng-if="infoKPI">
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <b>{{selectedKPIs[1]}} - Trends</b>
+                    <b>{{selectedKPIs[1]}} - Trends <button id="exportExcelButton" ng-click="exportData()">Excel Export</button></b>
                 </div>
-                <div class="panel-body2">
+                <div class="panel-body2" id="excelExport">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
