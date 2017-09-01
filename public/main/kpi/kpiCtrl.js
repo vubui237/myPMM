@@ -1,5 +1,5 @@
 angular.module('myPMM').controller('kpiCtrl', function($scope,homeSrvc) {
-    $scope.user_infos = homeSrvc.getUser().then((response) => {
+    $scope.user_infos =  homeSrvc.getUser().then((response) => {
         let parseArray = response[0].assigned_kpis.split(" ").map((x) => {return parseInt(x)})
         $scope.user_info = parseArray;
     

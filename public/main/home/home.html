@@ -1,18 +1,46 @@
 <div class="row"  ng-if="level">
         <div class="col-lg-12">
-            <h1 class="page-header">Welcome, {{test2[0].username}}</h1> Prove a point list: training videos, shopping cart, add nicknames, usercp, "show more messages", "hover oveer name for more user info"
+            <h1 class="page-header">Welcome, {{test2[0].username}}</h1> list: training videos, shopping cart, add nicknames, usercp, "show more messages", "hover oveer name for more user info", why it doesn't refresh after user set KPI, limit messages
             <div class="chat-panel panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-comments fa-fw"></i> Team Discussion
                         <div class="input-group">
-                            <form ng-submit="sendChat(msg);msg=''">
+                            <!-- <form ng-submit="sendChat(msg);msg=''">
                                 <input id="btn-input" type="text" ng-model="msg" class="form-control input-sm" placeholder="Write your message" />
                             </form>
                                 <span class="input-group-btn">
                                     <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="sendChat(msg);msg=''">
                                         Send
+                                    </button> -->
+                            <form ng-submit="sendChat(msg, 'null');msg=''" ng-show="TxtImg">
+                                <input id="btn-input" type="text" ng-model="msg" class="form-control input-sm" placeholder="Write your message" />
+                            </form>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="toggleTxtImg()" ng-show="TxtImg">
+                                        Txt Mode
                                     </button>
                                 </span>
+                            <form ng-submit="sendChat('null', image);msg=''" ng-show="!TxtImg">
+                                <input id="btn-input" type="text" ng-model="image" class="form-control input-sm" placeholder="Insert image link" />
+                            </form>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="toggleTxtImg()" ng-show="!TxtImg">
+                                        Img Mode
+                                    </button>
+                                    <button class="btn btn-warning btn-sm" ng-click="openCloseEmoji()">Emoji</button>
+                                </span>
+                            </div>
+                            <div class="input-group emojiButtons">
+                            <span ng-show="sadMoji">
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':lol:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/lol.png"></button>
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':angry:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/angry.png"></button>
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':cool:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/cool.png"></button>
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':crying:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/crying.png"></button>
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':devmtn:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/devmtn.png"></button>
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':love:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/love.png"></button>
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':omg:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/omg.png"></button>
+                                <button class = "emojiButtonSubmit" ng-click="sendChat(':orly:'); openCloseEmoji()"><img class="emojiButtonsPicture" src="./asset/img/emojis/orly.png"></button>
+                            </span>
                             </div>
                     </div>
                     <div class="panel-body-chatty" ng-repeat="msgs in chatData">

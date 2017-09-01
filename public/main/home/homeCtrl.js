@@ -31,14 +31,26 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
     }
     $scope.activateChat();
 
-    $scope.sendChat = (msg) => {
+    $scope.sendChat = (msg, image) => {
         let timeago = new Date();
         let imgTag = msg.split("").splice(0,5).join("")+msg.split("").splice(msg.length-6, 6).join("");
         let img = null;
         //Adding image BBCodes like forums.
-        if(imgTag === '[img][/img]') {
-            img = msg.slice(5,msg.length-6);
+        // if(imgTag === '[img][/img]') {
+        //     img = msg.slice(5,msg.length-6);
+        //     msg = null;
+        // }
+
+        //This is here to prevent previous BB code from breaking, if reversal is needed from text->image buttons.
+        if(msg === 'null') {
             msg = null;
+        }
+        if(image === 'null') {
+            image = null;
+        }
+        if(image) {
+            img = image;
+            console.log(img);
         }
         //IMPLEMENTING EMOJIS ZOMGZ
         //convert to switch statement later.
@@ -70,6 +82,10 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
             img = './asset/img/emojis/omg.png'
             msg = null;
         }
+        if(msg === ":orly:") {
+            img = './asset/img/emojis/orly.png'
+            msg = null;
+        }
         if(msg!== "") {
             homeSrvc.postChat($scope.userID, msg, timeago, img).then((messages)=> {
                 $scope.chatData = messages;
@@ -83,6 +99,11 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
             $scope.chatData[i].timeago = convertTime(new Date($scope.chatData[i].timeago));
         }
         $scope.chatData.sort((a,b)=>{return b.id-a.id})
+    }
+    $scope.TxtImg = true;
+    $scope.toggleTxtImg = () => {
+        $scope.TxtImg = !$scope.TxtImg;
+        console.log("its working")
     }
     convertTime = (date) => {
         let seconds = Math.floor((new Date() - date) / 1000);
@@ -100,6 +121,10 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
         else if(Math.round(seconds/60) >= 1) return "1 minute ago";
         else if(seconds >= 2)return seconds + " seconds ago";
         else return "1 second ago";
+    }
+    $scope.sadMoji = false;
+    $scope.openCloseEmoji = () => {
+        $scope.sadMoji = !$scope.sadMoji;
     }
 
 
