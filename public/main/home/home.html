@@ -20,7 +20,7 @@
                                         Txt Mode
                                     </button>
                                 </span>
-                            <form ng-submit="sendChat('null', image);msg=''" ng-show="!TxtImg">
+                            <form ng-submit="sendChat('null', image);image=''" ng-show="!TxtImg">
                                 <input id="btn-input" type="text" ng-model="image" class="form-control input-sm" placeholder="Insert image link" />
                             </form>
                                 <span class="input-group-btn">
@@ -59,7 +59,6 @@
                                     <p>
                                         {{msgs.message}}
                                         <a href="{{msgs.img}}" target="_blank"><img id="chatBoxMessageImg" ng-src="{{msgs.img}}"></a>
-                               
                                     </p>
                                 </div>
                             </li>

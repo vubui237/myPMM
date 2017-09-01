@@ -1,0 +1,53 @@
+<!-- Hello world!
+{{storeItems}} -->
+
+<div ng-repeat="item in storeItems">
+        <div class="col-lg-6 mainStoreDiv">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <center><b>{{item.name}}</b></center>
+                </div>
+                <div class="panel-body-store">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href=".storeItemMain_{{item.id}}" data-toggle="tab">Product</a>
+                        </li>
+                        <li><a href=".storeItemDesc_{{item.id}}" data-toggle="tab">Details</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content innerStoreDescription">
+                        <div class="tab-pane fade in active storeItemMain_{{item.id}} imageContainerStore">
+                            <img class="storeProductImages" ng-src="{{item.image}}">
+                        </div>
+                        <div class="tab-pane fade storeItemDesc_{{item.id}}">
+                            <center>
+                            <h4>Product Description</h4>
+                            <p> {{item.description}}<br>
+                            <!-- Sizes: {{item.sizes}}<br> -->
+                            Price: ${{item.prices}}<br>
+                            <select name="singleSelect" id="singleSelect" ng-model="qty">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                            <button ng-click="addCart(item.id, qty); ContinueToCart()" ng-show="cTc">Add to Cart</button>
+                            <button ng-click="ContinueToCart()" ng-show="!cTc">Continue Shopping</button>
+                            <button ng-show="!cTc" ui-sref="#">Checkout</button>
+                            <br>
+                            Total: ${{qty * item.prices | number : 2}}
+                            <!-- This pipe number 2 gives it 2 decimal places. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        

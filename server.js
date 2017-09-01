@@ -14,6 +14,7 @@ const loginCtrl = require('./server/loginCtrl.js');
 const userCtrl = require('./server/userCtrl.js');
 const kpiAdminCtrl = require('./server/kpiAdminCtrl.js')
 const chatCtrl = require('./server/chatCtrl.js')
+const storeCtrl = require('./server/storeCtrl.js')
 
 const app = express();
 
@@ -36,15 +37,19 @@ app.get('/getusers', userCtrl.getusers);
 app.get('/kpihistory', kpiAdminCtrl.getHistory);
 app.get('/kpihistory/:id', kpiAdminCtrl.getKPIHistoryByID);
 app.get('/chat', chatCtrl.getChat);
+app.get('/store', storeCtrl.getStoreItems);
 
 app.post('/kpidata', kpiCtrl.add);
 app.post('/addNewKPI', kpiAdminCtrl.add)
 app.post('/chat', chatCtrl.postChat);
+app.post('/store', storeCtrl.addStoreItem);
 
 app.put('/kpidata/:id', kpiCtrl.update);
 app.put('/userupdate', userCtrl.userupdate);
+app.put('/store', storeCtrl.updateStoreItem)
 
 app.delete('/kpidata/:id', kpiCtrl.delete);
+app.delete('/store/:id', storeCtrl.deleteStoreItem);
 
 passport.use(new Auth0Strategy(config.auth0, (accessToken, refreshToken, extraParams, profile, done) => {
     // console.log(profile)

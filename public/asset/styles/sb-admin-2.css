@@ -474,3 +474,26 @@ table.dataTable thead .sorting:after {
 .emojiButtons {
   padding-top: 10px;
 }
+.storeProductImages {
+  min-height: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  max-width: 250px;
+  display: block;
+  margin: auto;
+  top: 50%;
+  position: relative;
+  
+}
+.innerStoreDescription {
+  height: 100%;
+  width: 100%;
+}
+.panel-body-store {
+  height: 100%;
+  width: 100%;
+}
+.mainStoreDiv {
+  height: 275px;
+  width: 33.33%;
+}
