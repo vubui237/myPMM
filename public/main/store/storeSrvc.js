@@ -39,11 +39,11 @@ angular.module('myPMM').service('storeSrvc', function($http) {
             url: "/cart/" + user_id,
         })
     }
-    this.addCart = (id, qty) => {
+    this.addCart = (id, qty, user_id) => {
         return $http({
             method: "POST",
             url: "/cart",
-            data: {"id_id" : id, "qty" : qty}
+            data: {"item_id" : id, "quantity" : qty, "user_id" : user_id}
         }).then((response)=> {
             return response.data;
         })

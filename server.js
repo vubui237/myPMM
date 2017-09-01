@@ -38,18 +38,22 @@ app.get('/kpihistory', kpiAdminCtrl.getHistory);
 app.get('/kpihistory/:id', kpiAdminCtrl.getKPIHistoryByID);
 app.get('/chat', chatCtrl.getChat);
 app.get('/store', storeCtrl.getStoreItems);
+app.get('/cart/:id', storeCtrl.getCart);
 
 app.post('/kpidata', kpiCtrl.add);
-app.post('/addNewKPI', kpiAdminCtrl.add)
+app.post('/addNewKPI', kpiAdminCtrl.add);
 app.post('/chat', chatCtrl.postChat);
 app.post('/store', storeCtrl.addStoreItem);
+app.post('/cart', storeCtrl.addCart);
 
 app.put('/kpidata/:id', kpiCtrl.update);
 app.put('/userupdate', userCtrl.userupdate);
-app.put('/store', storeCtrl.updateStoreItem)
+app.put('/store', storeCtrl.updateStoreItem);
+app.put('/cart', storeCtrl.updateCartQty);
 
 app.delete('/kpidata/:id', kpiCtrl.delete);
 app.delete('/store/:id', storeCtrl.deleteStoreItem);
+app.delete('/cart/:id', storeCtrl.deleteCartItem);
 
 passport.use(new Auth0Strategy(config.auth0, (accessToken, refreshToken, extraParams, profile, done) => {
     // console.log(profile)

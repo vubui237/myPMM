@@ -475,15 +475,24 @@ table.dataTable thead .sorting:after {
   padding-top: 10px;
 }
 .storeProductImages {
-  min-height: 200px;
-  max-height: 200px;
-  min-width: 200px;
-  max-width: 250px;
+  min-height: 275px;
+  max-height: 275px;
+  min-width: 80%;
+  max-width: 100%;
   display: block;
   margin: auto;
   top: 50%;
   position: relative;
-  
+}
+.storeProductDescriptions {
+  min-height: 180px;
+  max-height: 180px;
+  min-width: 80%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  top: 50%;
+  position: relative;
 }
 .innerStoreDescription {
   height: 100%;
@@ -494,6 +503,6 @@ table.dataTable thead .sorting:after {
   width: 100%;
 }
 .mainStoreDiv {
-  height: 275px;
+  height: 400px;
   width: 33.33%;
 }

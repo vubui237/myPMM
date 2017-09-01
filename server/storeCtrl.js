@@ -17,6 +17,25 @@ module.exports = {
         const db = req.app.get('db');
         const {id} = req.params;
         db.delete_store_item([id]).then((response)=>res.status('200').send(response)).catch(()=>res.status('404').send())
+    },
+    getCart: (req,res,next) => {
+        const db = req.app.get('db');
+        const {id} = req.params;
+        db.get_cart([id]).then((response)=>res.status('200').send(response)).catch(()=>res.status('404').send())
+    },
+    addCart: (req,res,next) => {
+        const db = req.app.get('db');
+        const {item_id, quantity, user_id} = req.body;
+        db.add_cart_item([item_id, quantity, user_id]).then(()=>res.status('200').send()).catch(()=>res.status('404').send());
+    },
+    updateCartQty: (req,res,next) => {
+        const db = req.app.get('db');
+
+    },
+    deleteCartItem: (req,res,next) => {
+        const db = req.app.get('db');
+
     }
+
 
 }
