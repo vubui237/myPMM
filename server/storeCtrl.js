@@ -20,8 +20,8 @@ module.exports = {
     },
     getCart: (req,res,next) => {
         const db = req.app.get('db');
-        const {id} = req.params;
-        db.get_cart([id]).then((response)=>res.status('200').send(response)).catch(()=>res.status('404').send())
+        const {user_id} = req.params;
+        db.get_cart([user_id]).then((response)=>res.status('200').send(response)).catch(()=>res.status('404').send())
     },
     addCart: (req,res,next) => {
         const db = req.app.get('db');

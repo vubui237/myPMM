@@ -29,7 +29,12 @@ angular.module('myPMM').controller('storeCtrl', function($scope, storeSrvc) {
     $scope.qty = "0.00";
 
     $scope.cTc = true;
-    $scope.ContinueToCart = () => {
+    $scope.ContinueToCart = (qty) => {
+        if(qty>0) {
+        $scope.cTc = !$scope.cTc;
+        }
+    }
+    $scope.ContinueToCart2 = () => {
         $scope.cTc = !$scope.cTc;
     }
 })

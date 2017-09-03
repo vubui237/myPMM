@@ -485,8 +485,8 @@ table.dataTable thead .sorting:after {
   position: relative;
 }
 .storeProductDescriptions {
-  min-height: 180px;
-  max-height: 180px;
+  min-height: 265px;
+  max-height: 265px;
   min-width: 80%;
   max-width: 100%;
   display: block;
@@ -505,4 +505,12 @@ table.dataTable thead .sorting:after {
 .mainStoreDiv {
   height: 400px;
   width: 33.33%;
+}
+.shoppingCartImage {
+  max-height: 200px;
+  width: 200px;
+}
+.panel-body-cart {
+  max-height: 850px;
+  max-width: 1000px;
 }

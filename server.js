@@ -38,7 +38,7 @@ app.get('/kpihistory', kpiAdminCtrl.getHistory);
 app.get('/kpihistory/:id', kpiAdminCtrl.getKPIHistoryByID);
 app.get('/chat', chatCtrl.getChat);
 app.get('/store', storeCtrl.getStoreItems);
-app.get('/cart/:id', storeCtrl.getCart);
+app.get('/cart/:user_id', storeCtrl.getCart);
 
 app.post('/kpidata', kpiCtrl.add);
 app.post('/addNewKPI', kpiAdminCtrl.add);

@@ -35,9 +35,9 @@
                                 <option value="9">9</option>
                             </select>
                             <!-- Convert this into a directive so that each button is independently scoped when add to cart fires off continue shopping. -->
-                            <button ng-click="addCart(item.id, qty, test2[0].authid); ContinueToCart()" ng-show="cTc">Add to Cart</button>
-                            <button ng-click="ContinueToCart()" ng-show="!cTc">Continue Shopping</button>
-                            <button ng-show="!cTc" ui-sref="#">Checkout</button>
+                            <button ng-click="addCart(item.id, qty, test2[0].authid); ContinueToCart(qty)" ng-show="cTc">Add to Cart</button>
+                            <button ng-click="ContinueToCart2()" ng-show="!cTc">Continue Shopping</button>
+                            <button ng-show="!cTc" ui-sref="cart">Checkout</button>
                             <br>
                             Total: ${{qty * item.prices | number : 2}}
                             <!-- This pipe number 2 gives it 2 decimal places. -->
