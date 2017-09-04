@@ -38,7 +38,11 @@
                         </table>
                     </div>
                         <div class="panel-heading">
-                            <b style="float: right; margin-top: -20px; color: darkred">Subtotal: ${{totals | number: 2}}</b>
+                            
+                            <b style="float: right; margin-top: -20px; color: darkred">
+                            <span ng-if="!couponDiscount"><input placeholder="Coupon" ng-model="coupon" size="6" maxlength="6">
+                            <button class = "btn-danger" ng-click="applyCoupon(coupon)">✔</button></span><span ng-if="couponDiscount">-{{couponDiscountValue * 100 | number: 0}}% applied</span>&nbsp;&nbsp;
+                            Subtotal: ${{totals | number: 2}}</b>
                         </div>
                 </div>
             </div>

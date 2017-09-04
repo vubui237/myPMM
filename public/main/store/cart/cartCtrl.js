@@ -6,6 +6,10 @@ angular.module('myPMM').controller('cartCtrl', function($scope, cartSrvc, storeS
             // console.log(response);
             $scope.totals = 0;
             $scope.shoppingCart.map((x)=>{$scope.totals+=x.quantity * x.prices})
+            if($scope.couponDiscount === true) {
+                $scope.totals = $scope.totals * (1-$scope.couponDiscountValue)
+            }
+
         })
     }
     getCartByUser();
@@ -26,5 +30,17 @@ angular.module('myPMM').controller('cartCtrl', function($scope, cartSrvc, storeS
             getCartByUser();
         })
     }
+    $scope.couponDiscount = false;
+    $scope.couponDiscountValue = 0.1;
+    $scope.applyCoupon = (coupon) => {
+        console.log(coupon);
+            if(coupon === "JBS") {
+                $scope.couponDiscount = true;
+                getCartByUser();
+            }
+            else {
+                $scope.couponDiscount = false;
+            }
+    }  
 
 })

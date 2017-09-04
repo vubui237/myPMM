@@ -9,7 +9,9 @@ angular.module('myPMM').directive('test', function () {
             $scope.pushKPIData = (graphID, time, data, correctiveAction) => {
                 kpiSrvc.addKPIData(graphID, time, data, correctiveAction).then((response) => {
                     $scope.data[0] = response[2];
-                    $scope.labels = response[1];
+                    $scope.labels = response[1].map((x)=>{
+                        let z = new Date(x)
+                        return z.toLocaleTimeString();})
                     $scope.dataID = response[0];
                     })
             }
@@ -84,7 +86,12 @@ angular.module('myPMM').directive('test', function () {
                     scope.data[2].push(scope.kpiUpperLimit)
                 }
                 scope.data[0] = rs[2];
-                scope.labels = rs[1];
+                scope.labels = rs[1].map((x)=>{
+                    let z = new Date(x)
+                    return z.toLocaleTimeString();
+
+                })
+                // console.log(scope.labels);
                 scope.dataID = rs[0];
                 
             })

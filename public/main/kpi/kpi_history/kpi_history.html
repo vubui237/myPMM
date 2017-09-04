@@ -1,5 +1,5 @@
 <div>
-    <label for="selectKPI"> KPIs: </label>
+    <label for="selectKPI" style="color:darkred">KPIs: </label>
     <select name="selectKPI" ng-model="selectedKPI">
     <option value="" selected hidden />Select KPI
     <!-- <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}+{{kpis.title}}+{{kpis.kpi_lower_limit}}+{{kpis.kpi_upper_limit}}+{{kpis.chart_lower_limit}}+{{kpis.chart_upper_limit}}">{{kpis.title}}</option> -->
@@ -16,20 +16,20 @@
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <b>{{selectedKPIs[1]}} - Trends <button class = "btn-danger" id="exportExcelButton" ng-click="exportData()">Excel Export</button></b>
+                    <b style="color:darkred">{{selectedKPIs[1]}} - Trends <button class = "btn-danger" id="exportExcelButton" ng-click="exportData()">Excel Export</button></b>
                 </div>
                 <div class="panel-body2" id="excelExport">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
-                                <tr>
+                                <tr style="color:darkred">
                                     <th>Date</th>
                                     <th>Data</th>
                                     <th>Corrective Action</th>
                                 </tr>
                             </thead>
                             <tbody ng-repeat="items_kpi in infoKPI">
-                                <tr>
+                                <tr style="color:red">
                                     <td>{{items_kpi.date1}}</td>
                                     <td>{{items_kpi.data}}</td>
                                     <td>{{items_kpi.corrective_action}}</td>

@@ -1,8 +1,47 @@
-KPI Title: <input ng-model="kTitle" placeholder="Paracetic Acid"><br>
-KPI Lower Limit: <input ng-model="kpiLL" placeholder="200"><br>
-KPI Upper Limit: <input ng-model="kpiUL" placeholder="800"><br>
-Chart Lower Limit: <input ng-model="cLL" placeholder="0"><br>
-Chart Upper Limit: <input ng-model="cUL" placeholder="1000"><br>
-<button class = "btn-danger" ng-click="addNewKPI(kTitle, kpiLL, kpiUL, cLL, cUL)">Add</button>
-
-ADD a scope to remove the ng-model's after clicking add
+<div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <b style="color:darkred"><center>Add Key Performance Indicator</center></b>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr style = "color:darkred">
+                                    <th>KPI Title</th>
+                                    <th><input ng-model="kTitle" placeholder="Paracetic Acid"></th>  
+                                </tr>
+                            </thead>
+                            <thead>
+                                    <tr style = "color:darkred">
+                                        <th>KPI Lower Limit</th>
+                                        <th><input ng-model="kpiLL" placeholder="0"></th>
+                                    </tr>
+                            </thead>
+                            <thead>
+                                    <tr style = "color:darkred">
+                                        <th>KPI Upper Limit</th>
+                                        <th><input ng-model="kpiUL" placeholder="800"></th>
+                                    </tr>
+                            </thead>
+                            <thead>
+                                    <tr style = "color:darkred">
+                                        <th>Chart Lower Limit</th>
+                                        <th><input ng-model="cLL" placeholder="0"></th>
+                                    </tr>
+                            </thead>
+                            <thead>
+                                    <tr style = "color:darkred">
+                                        <th>Chart Upper Limit</th>
+                                        <th><input ng-model="cUL" placeholder="1000"></th>
+                                    </tr>
+                            </thead>
+                           
+                        </table>
+                        <center><button class = "btn-danger" ng-click="addNewKPI(kTitle, kpiLL, kpiUL, cLL, cUL)">Add</button></center>
+                    </div>
+                </div>
+            </div>
+        </div>

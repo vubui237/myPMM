@@ -1,5 +1,5 @@
 <div>
-    <label for="selectUser"> Active Users: </label>
+    <label for="selectUser"> Active Users:</label>
     <select name="selectUser" ng-model="selectedUser">
     <option value="" selected hidden />Select User
     <option ng-repeat="userInfo in userInfos" value="{{userInfo.authid}}+{{userInfo.username}}+{{userInfo.avatar}}+{{userInfo.level}}+{{userInfo.assigned_kpis}}">{{userInfo.username}}</option>
@@ -7,16 +7,68 @@
     <button class = "btn-danger" ng-click="submitUpdate(selectedUser)">Display Info</button>
     <!-- This NG repeat is if you want all users to be displayed instead of selected. -->
     <!-- <div ng-repeat="userInfo in userInfos"> -->
-    <div ng-if="selectedUsers">
-        UserID: {{selectedUsers[0]}}<br>
+    <!-- <div ng-if="selectedUsers"> -->
+        <!-- UserID: {{selectedUsers[0]}}<br>
         Username: {{selectedUsers[1]}}<br>
         Avatar URL: <input ng-model="selectedUsers[2]"><br>
         User Level: <input ng-model="selectedUsers[3]">0 = Inactive, 1 = Supervisor, 2 = Manager<br>
         Assigned KPIs: <input ng-model="selectedUsers[4]"><br>
         <button class = "btn-danger" ng-click="updateDetails(selectedUsers[0], selectedUsers[2], selectedUsers[3], selectedUsers[4])">Update</button>
-        </div>
+        </div> -->
+<!-- old stuff -->
+        <div ng-if="selectedUsers" class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <b style="color:darkred"><center>Modify Active User</center></b>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr style = "color:darkred">
+                                            <th>UserID</th>
+                                            <th>{{selectedUsers[0]}}</th>  
+                                        </tr>
+                                    </thead>
+                                    <thead>
+                                            <tr style = "color:darkred">
+                                                <th>Username:</th>
+                                                <th>{{selectedUsers[1]}}</th>
+                                            </tr>
+                                    </thead>
+                                    <thead>
+                                            <tr style = "color:darkred">
+                                                <th>Avatar URL:</th>
+                                                <th><input ng-model="selectedUsers[2]"></th>
+                                            </tr>
+                                    </thead>
+                                    <thead>
+                                            <tr style = "color:darkred">
+                                                <th>User Level:</th>
+                                                <th><input ng-model="selectedUsers[3]"></th>
+                                            </tr>
+                                    </thead>
+                                    <thead>
+                                            <tr style = "color:darkred">
+                                                <th>Assigned KPIs:</th>
+                                                <th><input ng-model="selectedUsers[4]"></th>
+                                            </tr>
+                                    </thead>
+                                   
+                                </table>
+                                <center><button class = "btn-danger" ng-click="updateDetails(selectedUsers[0], selectedUsers[2], selectedUsers[3], selectedUsers[4])">Update</button></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- old stuff -->
+
+
         <!-- </div>  -->
-</div>
+<!-- </div> -->
 
 <div>
         <label for="selectUserx"> Inactive Users: </label>
@@ -27,15 +79,63 @@
         <button class = "btn-danger" ng-click="submitUpdatex(selectedUserx)">Display Info</button>
         <!-- This NG repeat is if you want all users to be displayed instead of selected. -->
         <!-- <div ng-repeat="userInfo in userInfos"> -->
-        <div ng-if="selectedUsersx">
+        <!-- <div ng-if="selectedUsersx">
             UserID: {{selectedUsersx[0]}}<br>
             Username: {{selectedUsersx[1]}}<br>
             Avatar URL: <input ng-model="selectedUsersx[2]"><br>
             User Level: <input ng-model="selectedUsersx[3]">0 = Inactive, 1 = Supervisor, 2 = Manager<br>
             Assigned KPIs: <input ng-model="selectedUsersx[4]"><br>
             <button class = "btn-danger" ng-click="updateDetails(selectedUsersx[0], selectedUsersx[2], selectedUsersx[3], selectedUsersx[4])">Update</button>
-            </div>
+            </div> -->
             <!-- </div>  -->
+            <div ng-if="selectedUsersx" class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <b style="color:darkred"><center>Activate User</center></b>
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr style = "color:darkred">
+                                                <th>UserID</th>
+                                                <th>{{selectedUsersx[0]}}</th>  
+                                            </tr>
+                                        </thead>
+                                        <thead>
+                                                <tr style = "color:darkred">
+                                                    <th>Username:</th>
+                                                    <th>{{selectedUsersx[1]}}</th>
+                                                </tr>
+                                        </thead>
+                                        <thead>
+                                                <tr style = "color:darkred">
+                                                    <th>Avatar URL:</th>
+                                                    <th><input ng-model="selectedUsersx[2]"></th>
+                                                </tr>
+                                        </thead>
+                                        <thead>
+                                                <tr style = "color:darkred">
+                                                    <th>User Level:</th>
+                                                    <th><input ng-model="selectedUsersx[3]"></th>
+                                                </tr>
+                                        </thead>
+                                        <thead>
+                                                <tr style = "color:darkred">
+                                                    <th>Assigned KPIs:</th>
+                                                    <th><input ng-model="selectedUsersx[4]"></th>
+                                                </tr>
+                                        </thead>
+                                       
+                                    </table>
+                                    <center><button class = "btn-danger" ng-click="updateDetails(selectedUsersx[0], selectedUsersx[2], selectedUsersx[3], selectedUsersx[4])">Update</button></center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
 
 
