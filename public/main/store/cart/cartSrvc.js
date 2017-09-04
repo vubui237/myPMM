@@ -7,4 +7,10 @@ angular.module('myPMM').service('cartSrvc', function($http) {
             return response.data;
         })
     }
+    this.deleteFromCart = (id) => {
+        return $http({
+            method: "DELETE",
+            url: '/cart/' + id
+        })
+    }
 })

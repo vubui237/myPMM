@@ -49,7 +49,7 @@ app.post('/cart', storeCtrl.addCart);
 app.put('/kpidata/:id', kpiCtrl.update);
 app.put('/userupdate', userCtrl.userupdate);
 app.put('/store', storeCtrl.updateStoreItem);
-app.put('/cart', storeCtrl.updateCartQty);
+app.put('/cart2', storeCtrl.updateCartQty);
 
 app.delete('/kpidata/:id', kpiCtrl.delete);
 app.delete('/store/:id', storeCtrl.deleteStoreItem);

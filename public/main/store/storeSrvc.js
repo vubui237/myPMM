@@ -59,7 +59,7 @@ angular.module('myPMM').service('storeSrvc', function($http) {
     this.updateCartQty = (cart_id, qty) => {
         return $http({
             method: "PUT",
-            url: "/cart",
+            url: "/cart2",
             data: {"id" : cart_id, "quantity" : qty}
         })
     }

@@ -7,32 +7,39 @@
 </div> -->
 
 <div class="row">
-        <div class="col-lg-6">
+        <div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <b>Shopping Cart</b>
+                    <b><center>Shopping Cart</center></b>
                 </div>
-                <div class="panel-body-cart">
+                <div class="panelBodyCart">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>Item</th>
-                                    <th width="200%">Description</th>
+                                    <th>Description</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="items in shoppingCart">
+                                <tr class="shoppingCartPerItem" ng-repeat="items in shoppingCart">
                                     <td><img class = "shoppingCartImage" ng-src="{{items.image}}"></td>
                                     <td><b>{{items.name}}</b><br>{{items.description}}</td>
                                     <td>${{items.prices | number: 2}}</td>
-                                    <td>{{items.quantity}}</td>
+                                    <td><input maxlength="3" id = "inputBoxCartQty" ng-model="items.quantity">
+                                        <button ng-click="updateQtyCart(items.item_id, items.quantity)">Update</button>
+                                        <button ng-click="deleteFromCart(items.item_id)">Remove</button></td>
+                                    <td>${{items.prices * items.quantity | number: 2}}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                        <div class="panel-heading">
+                            <b style="float: right; margin-top: -10px;">Subtotal: ${{totals | number: 2}}</b>
+                        </div>
                 </div>
             </div>
         </div>

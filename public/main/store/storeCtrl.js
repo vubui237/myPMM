@@ -1,4 +1,4 @@
-angular.module('myPMM').controller('storeCtrl', function($scope, storeSrvc) {
+angular.module('myPMM').controller('storeCtrl', function($scope, storeSrvc, cartSrvc) {
     storeSrvc.getStoreItems().then((response)=> {
         $scope.storeItems = response;
     })
@@ -18,13 +18,26 @@ angular.module('myPMM').controller('storeCtrl', function($scope, storeSrvc) {
         })
     }
     $scope.addCart = (id, qty, user_id) => {
-        // console.log(id, qty, user_id);
-        if(qty>0 && id && user_id) {
-            console.log(id, qty, user_id)
-            storeSrvc.addCart(qty,id, user_id).then((response)=>{
-                console.log(response);
-            })
-        }
+        cartSrvc.getCart(user_id).then((response)=>{
+            let isItemInDatabase = false;
+            let currentQty = 0;
+            response.map((x)=> x.item_id === id ? isItemInDatabase = true : 0)
+            response.map((x)=> x.item_id === id ? currentQty=x.quantity : 0)
+            // console.log(isItemInDatabase);
+            if(qty>0 && id && user_id && isItemInDatabase === false) {
+                // console.log(id, qty, user_id)
+                storeSrvc.addCart(qty,id, user_id).then((response)=>{
+                    // console.log(response); //no response right now;
+                })
+            }
+            if(qty>0 && id && user_id && isItemInDatabase === true) {
+                // console.log(id, qty, user_id)
+                qty = parseInt(currentQty) + parseInt(qty);
+                storeSrvc.updateCartQty(id, qty).then((response)=>{
+                    // console.log(response); //no response right now;
+                })
+            }
+        })  
     }
     $scope.qty = "0.00";
 

@@ -30,12 +30,15 @@ module.exports = {
     },
     updateCartQty: (req,res,next) => {
         const db = req.app.get('db');
+        const {id, quantity} = req.body;
+        // console.log(req.body.qty);
+        db.update_cart_quantity([id, quantity]).then(()=>res.status('200').send()).catch(()=>res.status('404').send());
 
     },
     deleteCartItem: (req,res,next) => {
         const db = req.app.get('db');
+        const{id} = req.params;
+        db.delete_from_cart([id]).then(()=>res.status('200').send()).catch(()=>res.status('404').send());
 
     }
-
-
 }

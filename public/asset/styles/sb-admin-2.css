@@ -510,7 +510,17 @@ table.dataTable thead .sorting:after {
   max-height: 200px;
   width: 200px;
 }
-.panel-body-cart {
+.panelBodyCart {
   max-height: 850px;
-  max-width: 1000px;
+}
+#inputBoxCartQty {
+  width: 30px;
+}
+.shoppingCartPerItem {
+  width: 100%;
+}
+.storeItemRepeat {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
