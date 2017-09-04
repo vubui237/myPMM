@@ -10,13 +10,13 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <b><center>Shopping Cart</center></b>
+                    <b><center style="color:darkred">Shopping Cart</center></b>
                 </div>
                 <div class="panelBodyCart">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
-                                <tr>
+                                <tr style="color:darkred">
                                     <th>Item</th>
                                     <th>Description</th>
                                     <th>Price</th>
@@ -24,21 +24,21 @@
                                     <th>Total</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="color:red">
                                 <tr class="shoppingCartPerItem" ng-repeat="items in shoppingCart">
                                     <td><img class = "shoppingCartImage" ng-src="{{items.image}}"></td>
                                     <td><b>{{items.name}}</b><br>{{items.description}}</td>
                                     <td>${{items.prices | number: 2}}</td>
-                                    <td><input maxlength="3" id = "inputBoxCartQty" ng-model="items.quantity">
-                                        <button ng-click="updateQtyCart(items.item_id, items.quantity)">Update</button>
-                                        <button ng-click="deleteFromCart(items.item_id)">Remove</button></td>
+                                    <td width="10%"><input maxlength="3" id = "inputBoxCartQty" ng-model="items.quantity">
+                                        <button class = "btn-danger" ng-click="updateQtyCart(items.item_id, items.quantity)">✔</button>
+                                        <button class = "btn-danger" ng-click="deleteFromCart(items.item_id)">✖</button></td>
                                     <td>${{items.prices * items.quantity | number: 2}}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                         <div class="panel-heading">
-                            <b style="float: right; margin-top: -10px;">Subtotal: ${{totals | number: 2}}</b>
+                            <b style="float: right; margin-top: -20px; color: darkred">Subtotal: ${{totals | number: 2}}</b>
                         </div>
                 </div>
             </div>

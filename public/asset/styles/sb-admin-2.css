@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  background-color: #f8f8f8;
+  background-color:white;
 }
 #wrapper {
   width: 100%;
@@ -78,7 +78,7 @@ body {
   border-bottom: 1px solid #e7e7e7;
 }
 .sidebar ul li a.active {
-  background-color: #eeeeee;
+  background-color: white;
 }
 .sidebar .arrow {
   float: right;
@@ -130,7 +130,7 @@ body {
   color: #f0ad4e;
 }
 .btn-danger.btn-outline {
-  color: #d9534f;
+  color: #FF0700;
 }
 .btn-primary.btn-outline:hover,
 .btn-success.btn-outline:hover,
@@ -268,18 +268,18 @@ table.dataTable thead .sorting:after {
   color: #3d8b3d;
 }
 .panel-red {
-  border-color: #d9534f;
+  border-color: white;
 }
 .panel-red > .panel-heading {
-  border-color: #d9534f;
+  border-color: white;
   color: white;
-  background-color: #d9534f;
+  background-color: #FF0700;
 }
 .panel-red > a {
-  color: #d9534f;
+  color: red;
 }
 .panel-red > a:hover {
-  color: #b52b27;
+  color: red;
 }
 .panel-yellow {
   border-color: #f0ad4e;
@@ -308,7 +308,7 @@ table.dataTable thead .sorting:after {
   left: 50%;
   width: 3px;
   margin-left: -1.5px;
-  background-color: #eeeeee;
+  background-color: white;
 }
 .timeline > li {
   position: relative;
@@ -402,7 +402,7 @@ table.dataTable thead .sorting:after {
   background-color: #f0ad4e !important;
 }
 .timeline-badge.danger {
-  background-color: #d9534f !important;
+  background-color: red !important;
 }
 .timeline-badge.info {
   background-color: #5bc0de !important;

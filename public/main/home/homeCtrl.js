@@ -4,12 +4,14 @@ angular.module('myPMM').controller('homeCtrl', function($scope, homeSrvc) {
         homeSrvc.getUser().then((response) => {
         $scope.test2 = response;
         $scope.userID = $scope.test2[0].authid;
-        console.log($scope.test2);
-        if($scope.test2[0].level > 0) {
+        // console.log($scope.test2);
+        if($scope.test2[0].level > 0 && $scope.test2[0].level!==2) {
             $scope.level = true;
             $scope.levelActivation = false;
+            $scope.admin = false;
         }
         if($scope.test2[0].level > 1) {
+            $scope.level = true;
             $scope.admin = true;
         }
         if($scope.test2[0].level === 0) {

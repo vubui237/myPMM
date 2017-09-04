@@ -3,8 +3,8 @@
 <div class="col-lg-12">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <button ng-click="showHide()" ng-show="chartOnOff"> - </button> 
-            <button ng-click="showHide()" ng-show="!chartOnOff"> + </button> 
+            <button ng-click="showHide()" class = "btn-danger" ng-show="chartOnOff"> - </button> 
+            <button ng-click="showHide()" class = "btn-danger" ng-show="!chartOnOff"> + </button> 
             {{kpiTitle}} 
         </div>
         <div class="panel-body" ng-show="chartOnOff">
@@ -20,23 +20,26 @@
                     chart-options="options" 
                     chart-dataset-override="datasetOverride" 
                     chart-click="onClick"></canvas>
-
+                    <center>
                     <input type="text" 
-                    placeholder="Enter Data" 
+                    placeholder="Data pt"
+                    size="10" 
                     ng-model="nums">
                     <input type="text" 
-                    placeholder="Corrective Action" 
+                    placeholder="Corrective action"
+                    size="44" 
                     ng-model="correctiveAction">
-                    <button ng-click="addKPIData(nums, correctiveAction)">Submitz</button>
+                    <button class = "btn-danger" ng-click="addKPIData(nums, correctiveAction)">✔</button><br>
                     <input type="text" 
-                    placeholder="Click point to modify" 
+                    placeholder="Modify pt" 
                     ng-model="newDataPoint">
-                    <button ng-click="changeDataPoint(newDataPoint)">Edit</button>
+                    <button class = "btn-danger" ng-click="changeDataPoint(newDataPoint)">✔</button>
                     <input type="text" 
-                    placeholder="Modify previous point" 
+                    placeholder="Modify prev pt" 
                     ng-model="lastNewDataPoint">
-                    <button ng-click="editLastDataPoint(lastNewDataPoint)">Edit</button>
-                    <button ng-click="deleteDataPoint()">Delete - Click a point</button>
+                    <button class = "btn-danger" ng-click="editLastDataPoint(lastNewDataPoint)">✔</button>
+                    <button class = "btn-danger" ng-click="deleteDataPoint()">✖Delete</button>
+                    </center>
                 </div>
             </div>
         </div>

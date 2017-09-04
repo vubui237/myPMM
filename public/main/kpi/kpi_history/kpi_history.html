@@ -5,7 +5,7 @@
     <!-- <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}+{{kpis.title}}+{{kpis.kpi_lower_limit}}+{{kpis.kpi_upper_limit}}+{{kpis.chart_lower_limit}}+{{kpis.chart_upper_limit}}">{{kpis.title}}</option> -->
     <option ng-repeat="kpis in kpiHistory" value="{{kpis.id}}+{{kpis.title}}+{{kpis.kpi_lower_limit}}+{{kpis.kpi_upper_limit}}+{{kpis.chart_lower_limit}}+{{kpis.chart_upper_limit}}">{{kpis.title}}</option>
     </select>
-    <button ng-click="displayKPI(selectedKPI)">All</button>  <button ng-click="displayExceededKPI(selectedKPI)"> > Limits</button>
+    <button class = "btn-danger" ng-click="displayKPI(selectedKPI)">All</button>  <button class = "btn-danger" ng-click="displayExceededKPI(selectedKPI)"> > Limits</button>
 
 
     
@@ -16,7 +16,7 @@
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <b>{{selectedKPIs[1]}} - Trends <button id="exportExcelButton" ng-click="exportData()">Excel Export</button></b>
+                    <b>{{selectedKPIs[1]}} - Trends <button class = "btn-danger" id="exportExcelButton" ng-click="exportData()">Excel Export</button></b>
                 </div>
                 <div class="panel-body2" id="excelExport">
                     <div class="table-responsive">

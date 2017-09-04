@@ -1,6 +1,6 @@
 <div class="row"  ng-if="level">
         <div class="col-lg-12">
-            <h1 class="page-header">Welcome, {{test2[0].username}}</h1> list: add nicknames, usercp
+            <h1 class="page-header" style="color:darkred">Welcome, {{test2[0].username}}</h1>
             <div class="chat-panel panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-comments fa-fw"></i> Team Discussion
@@ -16,7 +16,7 @@
                                 <input id="btn-input" type="text" ng-model="msg" class="form-control input-sm" placeholder="Write your message" />
                             </form>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="toggleTxtImg()" ng-show="TxtImg">
+                                    <button class="btn btn-danger btn-sm" id="btn-chat" ng-click="toggleTxtImg()" ng-show="TxtImg">
                                         Txt Mode
                                     </button>
                                 </span>
@@ -24,10 +24,10 @@
                                 <input id="btn-input" type="text" ng-model="image" class="form-control input-sm" placeholder="Insert image link" />
                             </form>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat" ng-click="toggleTxtImg()" ng-show="!TxtImg">
+                                    <button class="btn btn-danger btn-sm" id="btn-chat" ng-click="toggleTxtImg()" ng-show="!TxtImg">
                                         Img Mode
                                     </button>
-                                    <button class="btn btn-warning btn-sm" ng-click="openCloseEmoji()">Emoji</button>
+                                    <button class="btn btn-danger btn-sm" ng-click="openCloseEmoji()">Emoji</button>
                                 </span>
                             </div>
                             <div class="input-group emojiButtons">
@@ -51,13 +51,13 @@
                                 </span>
                                 <div class="chat-body clearfix">
                                     <div class="header">
-                                        <strong class="primary-font">{{msgs.username}}</strong>
+                                        <strong class="primary-font" style="color: darkred">{{msgs.username}}</strong>
                                         <small class="pull-right text-muted">
-                                            <i class="fa fa-clock-o fa-fw"></i>{{msgs.timeago}}
+                                            <i class="fa fa-clock-o fa-fw" style="color:red"></i><a>{{msgs.timeago}}</a>
                                         </small>
                                     </div>
                                     <p>
-                                        {{msgs.message}}
+                                        <a>{{msgs.message}}</a>
                                         <a href="{{msgs.img}}" target="_blank"><img id="chatBoxMessageImg" ng-src="{{msgs.img}}"></a>
                                     </p>
                                 </div>
@@ -70,6 +70,6 @@
             </div>
         </div>
     <div>
-        <p ng-if="levelActivation">Your account is waiting activation by the site administrator.</p>
+        <p ng-if="levelActivation"><a>Your account is waiting activation by the site administrator.</a></p>
 <!-- <a href="/auth/logout" ng-if="test2"><button>Logout</button></a> -->
     </div>
