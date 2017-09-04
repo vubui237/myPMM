@@ -1,0 +1,1 @@
+INSERT INTO bonus(auth_id, name, goal, current) VALUES($1,$2,$3,$4);

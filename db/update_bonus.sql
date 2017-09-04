@@ -1,0 +1,1 @@
+UPDATE bonus SET name = $2, goal = $3, current = $4 WHERE id = $1;

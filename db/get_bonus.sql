@@ -1,0 +1,1 @@
+SELECT * FROM bonus WHERE auth_id = $1;

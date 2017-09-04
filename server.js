@@ -15,6 +15,7 @@ const userCtrl = require('./server/userCtrl.js');
 const kpiAdminCtrl = require('./server/kpiAdminCtrl.js')
 const chatCtrl = require('./server/chatCtrl.js')
 const storeCtrl = require('./server/storeCtrl.js')
+const bonusCtrl = require('./server/bonusCtrl.js')
 
 const app = express();
 
@@ -39,21 +40,25 @@ app.get('/kpihistory/:id', kpiAdminCtrl.getKPIHistoryByID);
 app.get('/chat', chatCtrl.getChat);
 app.get('/store', storeCtrl.getStoreItems);
 app.get('/cart/:user_id', storeCtrl.getCart);
+app.get('/bonus/:id', bonusCtrl.getBonus)
 
 app.post('/kpidata', kpiCtrl.add);
 app.post('/addNewKPI', kpiAdminCtrl.add);
 app.post('/chat', chatCtrl.postChat);
 app.post('/store', storeCtrl.addStoreItem);
 app.post('/cart', storeCtrl.addCart);
+app.get('/bonus', bonusCtrl.addBonus)
 
 app.put('/kpidata/:id', kpiCtrl.update);
 app.put('/userupdate', userCtrl.userupdate);
 app.put('/store', storeCtrl.updateStoreItem);
 app.put('/cart2', storeCtrl.updateCartQty);
+app.get('/bonus', bonusCtrl.updateBonus)
 
 app.delete('/kpidata/:id', kpiCtrl.delete);
 app.delete('/store/:id', storeCtrl.deleteStoreItem);
 app.delete('/cart/:id', storeCtrl.deleteCartItem);
+app.get('/bonus/:id', bonusCtrl.deleteBonus)
 
 passport.use(new Auth0Strategy(config.auth0, (accessToken, refreshToken, extraParams, profile, done) => {
     // console.log(profile)

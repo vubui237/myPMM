@@ -45,6 +45,11 @@ angular.module('myPMM',['ui.router', 'chart.js']).config(function ($stateProvide
             templateUrl: './main/store/cart/cart.html',
             controller: 'cartCtrl'
         })
+        .state('bonus', {
+            url: '/bonus',
+            templateUrl: './main/bonus/bonus.html',
+            controller: 'bonusCtrl'
+        })
     $urlRouterProvider
         .otherwise('/')
 })
